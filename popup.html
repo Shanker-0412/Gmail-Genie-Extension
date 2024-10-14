@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gmail Genie</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/scale.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="logo-container">
+                <h1 id="gmail-genie" class="logo">
+                    <i class="fas fa-envelope"></i>
+                    <span class="gmail-text">Gmail</span> <span class="genie-text">Genie</span>
+                </h1>
+            </div>
+            <div class="theme-toggle">
+                <span class="theme-label">Dark Mode</span>
+                <label class="switch">
+                    <input type="checkbox" id="theme-switch">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </header>
+
+        <main class="app-content" role="main">
+            <div class="action-buttons">
+                <button id="summarize-email" class="btn btn-primary" data-tippy-content="Summarize the current email">
+                    <i class="fas fa-compress-alt"></i> Summarize Email
+                </button>
+                <button id="auto-reply" class="btn btn-secondary" data-tippy-content="Generate an auto-reply">
+                    <i class="fas fa-reply-all"></i> Auto Reply
+                </button>
+                <button id="edit-reply" class="btn btn-tertiary" data-tippy-content="Edit the current reply">
+                    <i class="fas fa-edit"></i> Edit Reply
+                </button>
+                <button id="send-reply" class="btn btn-success" data-tippy-content="Send the reply">
+                    <i class="fas fa-paper-plane"></i> Send Reply
+                </button>
+            </div>
+
+            <section id="email-content-section" class="section content-section card">
+                <h2><i class="fas fa-envelope-open-text"></i> Email Content</h2>
+                <textarea id="email-content" placeholder="Email content will appear here..."></textarea>
+            </section>
+
+            <section id="summary-section" class="section content-section card hidden">
+                <h2><i class="fas fa-file-alt"></i> Email Summary</h2>
+                <div id="summary-content" class="summary-box"></div>
+            </section>
+
+            <section id="reply-section" class="section content-section card hidden">
+                <h2><i class="fas fa-reply"></i> Reply Content</h2>
+                <textarea id="reply-content" placeholder="Your reply will appear here..."></textarea>
+                <div id="char-count" class="char-count">0 / 2000</div>
+            </section>
+        </main>
+
+        <footer class="app-footer">
+            © 2024 Gmail Genie. All rights reserved.
+        </footer>
+    </div>
+
+    <div id="toast" class="toast"></div>
+    <div id="progress-bar" class="progress-bar"></div>
+
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>
